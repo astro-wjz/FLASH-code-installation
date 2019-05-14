@@ -266,6 +266,11 @@ mpirun -np 4 ./flash4 -par_file flash.par
 If you meet an error like ```cannot find -lz``` when ```make```
 you have to copy ```/to/your/path/software/zlib/lib/libz.a``` to ```/to/your/path/software/hdf5/lib```
 
+If you meet an error like ```cannot find -lz``` when ```make```
+you have to copy ```/to/your/path/software/zlib/lib/libz.a``` to ```/to/your/path/software/hdf5/lib```
+
+If you meet an error like```error while loading shared libraries: libhdf5.so.101:cannot open shared object file: No such file or directory```
+
 Output normally until reached max SimTime means FLASH4.6 is installed successfully.
 Now you can setup your own simulation. (Better to make a new directory to store your simulation by add ```-objdir=New_directory``` when ```setup```)
 
