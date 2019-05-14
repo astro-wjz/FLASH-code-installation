@@ -18,8 +18,11 @@ gcc version 4.8.5 20150623 (Red Hat 4.8.5-28) (GCC)
 your gcc is done.
 
 ## Install Open MPI
+
 You can install openmpi or mpich, or both
+
 You can download mpich at ：www.mpich.org/downloads/
+
 You can download openmpi at : https://www.open-mpi.org/software/ompi/v4.0/
 ```
 tar -zxvf filename.tar.gz
@@ -277,7 +280,7 @@ Find any directory to install Visit, you just have to extract tar file directly,
 cd visitx.y.z/bin
 ./visit
 ```
-then you can read output files just like in Windows platform.
+then you can read output files just like on Windows platform.
 
 
 
