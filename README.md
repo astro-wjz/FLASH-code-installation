@@ -7,3 +7,14 @@ This installation guide is espescially for GCC version > 4.8 Redhat centos7, oth
 
 My PATH-TO-INSTALL is /home/jzwang/flash/software, and my tar-files store in /home/jzwang/flash/, you can change your path by yourself.
 
+## Check GCC version
+```
+gcc -v
+```
+check C, C++, Fortran compiler, if returen
+```
+gcc version 4.8.5 20150623 (Red Hat 4.8.5-28) (GCC) 
+```
+your gcc is done.
+
+
