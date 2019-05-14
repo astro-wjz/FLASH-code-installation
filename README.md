@@ -263,13 +263,13 @@ cd object
 make
 mpirun -np 4 ./flash4 -par_file flash.par
 ```
-If you meet an error like ```cannot find -lz``` when ```make```
-
-you have to copy ```/to/your/path/software/zlib/lib/libz.a``` to ```/to/your/path/software/hdf5/lib```
+#### Error 1
 
 If you meet an error like ```cannot find -lz``` when ```make```
 
 you have to copy ```/to/your/path/software/zlib/lib/libz.a``` to ```/to/your/path/software/hdf5/lib```
+
+#### Error 2
 
 If you meet an error like```error while loading shared libraries: libpython2.7.so: cannot open shared object file: No such file or directory```
 
@@ -277,6 +277,8 @@ you have to add environment viriable
 ```
 export LD_LIBRARY_PATH=/usr/local/aegis/SecureCheck/lib:$LD_LIBRARY_PATH
 ```
+
+#### Error 3
 
 If you meet an error like```error while loading shared libraries: libhdf5.so.101:cannot open shared object file: No such file or directory```
 
