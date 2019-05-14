@@ -3,7 +3,7 @@ Installation procedure of FLASH code for MHD simulation
 
 All of the software is open source except FLASH4.X, you should go to http://flash.uchicago.edu/site/flashcode/ to request an account.
 
-This installation guide is espescially for GCC version > 4.4。7 Red Hat server, other versions may lead to unsuccessful installation.
+This installation guide is espescially for GCC version > 4.4.7 Red Hat server, other versions may lead to unsuccessful installation.
 
 My PATH-TO-INSTALL is /to/your/path/software, and my tar-files store in /to/your/path/, you can change your path by yourself. You'd better split the two path in case of you need to reinstall some part due to some error.
 
