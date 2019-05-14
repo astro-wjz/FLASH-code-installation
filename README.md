@@ -35,6 +35,32 @@ if no error, then
 make
 make install
 ```
-### Change 
+#### Add environment variable
+```
+cd ~
+gedit .bashrc
+```
+add the environment variable at the end of the document
+```
+export USHOME=/to/your/path/software
+export PATH=$USHOME/hypre/bin:$USHOME/hdf5/bin:$USHOME/openmpi/bin:$PATH
+export LD_LIBRARY_PATH=/to/your/path/software/hdf5/lib:/to/your/path/software/openmpi/lib
+```
+make the variable effect
+```
+source .bashrc
+```
+or restart the connection.
+
+Test mpi and run examples.
+```
+cd to/your/path/openmpi-x-y-z/examples
+mpicc -o hello_c hello_c.c
+mpiexec -np 4 ./hello_c
+mpirun -np 4 ./hello_c
+```
+Output normally means openmpi is installed successfully.
+
+
 
 
