@@ -110,7 +110,7 @@ make the variable effect
 source .bashrc
 ```
 
-# Install Hypre
+## Install Hypre
 
 You can download hypre at : https://computation.llnl.gov/casc/hypre/software.html 
 ```
