@@ -115,8 +115,6 @@ source .bashrc
 You can download hypre at : https://computation.llnl.gov/casc/hypre/software.html 
 ```
 tar -zxvf filename.tar.gz
-```
-```
 cd hypre-x-y-z
 ```
 ```
@@ -162,8 +160,124 @@ mpirun -np 2 filename
 ```
 Output normally means hypre and mpi are installed successfully.
 
+If report warnings like ```libifport.so```, you have to add environment variable in ~/.bashrc below
+```
+export LD_LIBRARY_PATH=/opt/intel/compilers_and libraries_2017.2.174/linux/compiler/lib/intel64_lin:$LD_LIBRARY_PATH
+```
+Attention: the path to libifport.so is different, you have to locate the files yourself.
 
+## Install HDF5 and links
 
+You can download hypre at : www.hdfgroup.org/downloads/hdf5/
+```
+tar -zxvf filename.tar.gz
+cd hdf5-x-y-z
+```
+```
+./configure --prefix=/to/your/path/software/hdf5 --enable-fortran --enable-shared CC=mpicc FC=mpif90 --with-zlib=/to/your/path/software/zlib
+```
+if report error like:
+```
+cannot run C compiled programs
+```
+then add '--host=x86_64' when configure, just do like before.
+
+Or you have to set the links by yourself, like
+```
+export AM_LDFLAGS:  -L/to/your/path/software/zlib/lib
+export AM_CPPFLAGS:  -I/to/your/path/software/zlib/include
+CC=/to/your/path/software/openmpi/bin/mpicc FC=/to/your/path/software/openmpi/bin/mpif90 ./configure --enable-fortran --prefix=/to/your/path/software/hdf5
+```
+if no error, then
+```
+make
+make install
+```
+Check h5cc to make sure the installation succeed.
+```
+h5cc -showconfig
+```
+If the returned information contained:
+```
+Installation point: /to/your/path/software/hdf5
+AM_LDFLAGS:  -L/to/your/path/software/zlib/lib
+C Compiler: /to/your/path/software/openmpi/bin/mpicc ( MPICH version 3.2.1 built with gcc version 4.8.5 20150623 (Red Hat 4.8.5-16) (GCC))
+AM_CPPFLAGS:  -I/to/your/path/software/zlib/include
+Fortran Compiler: /to/your/path/software/openmpi/bin/mpif90 ( MPICH version 3.2.1 built with gcc version 4.8.5 20150623 (Red Hat 4.8.5-16) (GCC))
+                  Fortran Flags: 
+               H5 Fortran Flags:  -pedantic -Wall -Wextra -Wunderflow -Wimplicit-interface -Wsurprising -Wno-c-binding-type  -s -O2
+```
+that means the installation succeed.(I installed mpich here)
+
+Most of the time you don't need to add environment variables, but if 'make' reports errors like 'No such file or directory' about hdf5, you have to do that.
+```
+cd ~
+gedit .bash_profile
+```
+add the environment variable at the end of the document
+```
+export PATH=/to/your/path/software/hypre/bin:$PATH
+export INCLUDE=/to/your/path/software/hypre/include:$INCLUDE
+export LD_LIBRARY_PATH=/to/your/path/software/hypre/lib:$LD_LIBRARY_PATH
+```
+make the variable effect
+```
+source .bashrc
+```
+
+Test hdf5 and links.
+```
+cd example
+./run-all-ex.sh
+```
+If report errors like ```./run-all-ex.sh: line53: ../../../bin/h5cc: No such file or directory messed up compiling h5_crtdat.c```
+you have to modify line 34 and line 44 in ```run-c-ex.sh```, add ```/to/your/path/software/hdf5/bin```to line 44 and delete ```../../..``` in line 34.
+
+Output normally means hdf5 and links are installed successfully.
+
+## Install and Test FLASH4.6
+
+```
+tar -zxvf filename.tar.gz
+cd FLASH4.6
+```
+setup the example 'Sedov'
+```
+./setup Sedov -auto
+```
+Modify the path of above parts in ```/Object/Makefile.h/Makefile.h```
+
+You have to reset MPI, HDF5, HYPRE, ZLIB path, and delete other path in Makefile.h
+```
+MPI_PATH=/to/your/path/software/openmpi
+HDF5_PATH=/to/your/path/software/hdf5
+HYPRE_PATH=/to/your/path/software/hypre
+ZLIB_PATH=/to/your/path/software/zlib
+```
+Then you can run 'Sedov' example
+```
+cd object
+make
+mpirun -np 4 ./flash4 -par_file flash.par
+```
+If you meet an error like ```cannot find -lz``` when ```make```
+you have to copy ```/to/your/path/software/zlib/lib/libz.a``` to ```/to/your/path/software/hdf5/lib```
+
+Output normally until reached max SimTime means FLASH4.6 is installed successfully.
+Now you can setup your own simulation. (Better to make a new directory to store your simulation by add ```-objdir=New_directory``` when ```setup```)
+
+## Visualizing output files
+
+Make sure your connection is X server connection or you cannot visualize.
+
+You can download VisIt at : https://wci.llnl.gov/simulation/computer-codes/visit/executables
+
+Find any directory to install Visit, you just have to extract tar file directly, and
+```
+cd visitx.y.z/bin
+./visit
+```
+then you can read output files just like in Windows platform.
 
 
 
