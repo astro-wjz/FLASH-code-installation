@@ -177,7 +177,7 @@ tar -zxvf filename.tar.gz
 cd hdf5-x-y-z
 ```
 ```
-./configure --prefix=/to/your/path/software/hdf5 --enable-fortran --enable-shared CC=mpicc FC=mpif90 --with-zlib=/to/your/path/software/zlib
+./configure --prefix=/to/your/path/software/hdf5 --enable-fortran --enable-parallel --enable-shared CC=mpicc FC=mpif90 --with-zlib=/to/your/path/software/zlib
 ```
 if report error like:
 ```
@@ -219,9 +219,9 @@ gedit .bash_profile
 ```
 add the environment variable at the end of the document
 ```
-export PATH=/to/your/path/software/hypre/bin:$PATH
-export INCLUDE=/to/your/path/software/hypre/include:$INCLUDE
-export LD_LIBRARY_PATH=/to/your/path/software/hypre/lib:$LD_LIBRARY_PATH
+export PATH=/to/your/path/software/hdf5/bin:$PATH
+export INCLUDE=/to/your/path/software/hdf5/include:$INCLUDE
+export LD_LIBRARY_PATH=/to/your/path/software/hdf5/lib:$LD_LIBRARY_PATH
 ```
 make the variable effect
 ```
