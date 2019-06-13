@@ -303,5 +303,26 @@ cd visitx.y.z/bin
 ```
 then you can read output files just like on Windows platform.
 
+On Windows platform, you can visualizing VisIt through "MobaXterm", you can download it everywhere.
+
+On Mac or Linux platform, you should install XQuartz first, then modify ```/private/etc/ssh/ssh_config``` 
+
+```
+ForwardX11 yes
+```
+
+then modify ```/private/etc/ssh/sshd_config```
+
+```
+X11Forwarding yes
+X11DisplayOffset 10
+```
+
+Attention: when you connect to romote servers, you should input
+
+```
+ssh -X user@hostname
+```
+
 
 
