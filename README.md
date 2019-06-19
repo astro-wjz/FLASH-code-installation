@@ -80,7 +80,7 @@ make the variable effect
 source .bashrc
 ```
 
-## Install zlib
+## Install zlib ( No need to install this unit unless you need '-lz' )
 
 You can download zlib at : http://www.zlib.net (maybe need VPN) or other mirror sites
 ```
@@ -177,7 +177,7 @@ tar -zxvf filename.tar.gz
 cd hdf5-x-y-z
 ```
 ```
-./configure --prefix=/to/your/path/software/hdf5 --enable-fortran --enable-parallel --enable-shared CC=mpicc FC=mpif90 --with-zlib=/to/your/path/software/zlib
+CC=/path/to/mpicc FC=/path/to/mpif90 ./configure --enable-parallel --enable-fortran --enable-shared --prefix=/to/your/path/software/hdf5
 ```
 if report error like:
 ```
@@ -196,16 +196,16 @@ if no error, then
 make
 make install
 ```
-Check h5cc to make sure the installation succeed.
+Check h5pcc to make sure the installation succeed.
 ```
-h5cc -showconfig
+h5pcc -showconfig
 ```
 If the returned information contained:
 ```
 Installation point: /to/your/path/software/hdf5
-AM_LDFLAGS:  -L/to/your/path/software/zlib/lib
+AM_LDFLAGS:  
 C Compiler: /to/your/path/software/openmpi/bin/mpicc ( MPICH version 3.2.1 built with gcc version 4.8.5 20150623 (Red Hat 4.8.5-16) (GCC))
-AM_CPPFLAGS:  -I/to/your/path/software/zlib/include
+AM_CPPFLAGS:  
 Fortran Compiler: /to/your/path/software/openmpi/bin/mpif90 ( MPICH version 3.2.1 built with gcc version 4.8.5 20150623 (Red Hat 4.8.5-16) (GCC))
                   Fortran Flags: 
                H5 Fortran Flags:  -pedantic -Wall -Wextra -Wunderflow -Wimplicit-interface -Wsurprising -Wno-c-binding-type  -s -O2
@@ -255,7 +255,7 @@ You have to reset MPI, HDF5, HYPRE, ZLIB path, and delete other path in Makefile
 MPI_PATH=/to/your/path/software/openmpi
 HDF5_PATH=/to/your/path/software/hdf5
 HYPRE_PATH=/to/your/path/software/hypre
-ZLIB_PATH=/to/your/path/software/zlib
+ZLIB_PATH=
 ```
 Then you can run 'Sedov' example
 ```
