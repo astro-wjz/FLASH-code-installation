@@ -171,7 +171,7 @@ Attention: the path to libifport.so is different, you have to locate the files y
 
 ## Install HDF5 and links
 
-You can download hypre at : www.hdfgroup.org/downloads/hdf5/
+You can download hypre at : www.hdfgroup.org/downloads/hdf5/ , hdf5-1.8.x is prefered.
 ```
 tar -zxvf filename.tar.gz
 cd hdf5-x-y-z
