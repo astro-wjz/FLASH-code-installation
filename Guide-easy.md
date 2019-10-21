@@ -37,7 +37,7 @@ tar -zxvf filename.tar.gz
 cd openmpi-x-y-z
 ```
 ```
-./configure --prefix=/flash/software/openmpi
+./configure --prefix=/abcde/usrname/flash/software/openmpi
 ```
 if no error, then
 ```
