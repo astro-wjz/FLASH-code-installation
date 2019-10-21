@@ -19,7 +19,9 @@ your gcc is done.
 
 ## Install Open MPI
 
-You can install openmpi or mpich, or both
+Suggest to use mpi have been installed with system, because it will be conveinent to submit your missions.
+
+If you want to install another one, you can install openmpi or mpich, or both
 
 You can download mpich at ：www.mpich.org/downloads/
 
