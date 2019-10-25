@@ -152,23 +152,6 @@ Clear file buffers before write: yes
 that means the installation succeed.
 
 
-## Add environment variable
-```
-cd ~
-vi .bashrc
-```
-add the environment variable at the end of the document
-```
-export PATH=/abcde/usrname/flash/software/hypre/bin:/abcde/usrname/flash/software/hdf5/bin:$PATH
-export LD_LIBRARY_PATH=/abcde/usrname/flash/software/hdf5/lib
-```
-make the variable effect
-```
-source .bashrc
-```
-or restart the connection.
-
-
 ## Install and Test FLASH4.6
 
 ```
@@ -186,7 +169,7 @@ vi Makefile.h
 ```
 You have to reset MPI, HDF5, HYPRE path, and delete other path in Makefile.h
 ```
-MPI_PATH=
+MPI_PATH=/PATH/TO/MPICC/Before/bin
 HDF5_PATH=/abcde/usrname/flash/software/hdf5
 HYPRE_PATH=/abcde/usrname/flash/software/hypre
 ZLIB_PATH=
