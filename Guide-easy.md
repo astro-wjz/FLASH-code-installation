@@ -9,11 +9,11 @@ My PATH-TO-INSTALL is /flash/software/hypre and /flash/software/hdf5, and my tar
 
 ## Install Open MPI
 
-Suggest to use mpi have been installed with system, because it will be convenient to submit your missions.
+Suggest to use mpi have been installed with system, load module is a good choise.
 
 Check the path of system mpi and remember this path.
 ```
-which mpicc
+which mpiicc
 ```
 And remember your install-path and skip to install Hypre.
 ```
@@ -45,6 +45,8 @@ make
 make install
 ```
 #### Add environment variable
+
+Most of time, you don't have to add any environment variables.
 ```
 cd ~
 vi .bashrc
@@ -69,7 +71,7 @@ tar -zxvf filename.tar.gz
 cd hypre-x-y-z/src
 ```
 ```
-./configure --prefix=/abcde/usrname/flash/software/hypre CC=mpicc FC=mpif90
+./configure --prefix=/abcde/usrname/flash/software/hypre CC=mpiicc FC=mpiifort CXX=mpiicpc
 ```
 if report error like:
 ```
@@ -90,7 +92,7 @@ tar -zxvf filename.tar.gz
 cd hdf5-x-y-z
 ```
 ```
-CC=mpicc FC=mpif90 ./configure --enable-parallel --enable-fortran --enable-shared --prefix=/abcde/usrname/flash/software/hdf5
+CC=mpiicc FC=mpiifort CXX=mpiicpc ./configure --enable-parallel --enable-fortran --prefix=/abcde/usrname/flash/software/hdf5
 ```
 if no error, then
 ```
@@ -169,7 +171,7 @@ vi Makefile.h
 ```
 You have to reset MPI, HDF5, HYPRE path, and delete other path in Makefile.h
 ```
-MPI_PATH=/PATH/TO/MPICC/Before/bin
+MPI_PATH=
 HDF5_PATH=/abcde/usrname/flash/software/hdf5
 HYPRE_PATH=/abcde/usrname/flash/software/hypre
 ZLIB_PATH=
