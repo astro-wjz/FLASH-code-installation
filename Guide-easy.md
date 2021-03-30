@@ -1,17 +1,17 @@
 # FLASH-code-installation
-Installation procedure of FLASH code for MHD simulation
+Installation guide of FLASH code for MHD simulation
 
-All of the software is open source except FLASH4.X, you should go to http://flash.uchicago.edu/site/flashcode/ to request an account.
+All of the softwares are open source except FLASH4.X, users should go to http://flash.uchicago.edu/site/flashcode/ to request an account.
 
 This installation guide is espescially for GCC version > 4.4.7 Red Hat server, other versions may lead to unsuccessful installation.
 
-My PATH-TO-INSTALL is /flash/software/hypre and /flash/software/hdf5, and my tar-files store in /flash/, you can change your path by yourself. You'd better split the two path in case of you need to reinstall some part due to some error.
+My PATH-TO-INSTALL is /flash/software/hypre and /flash/software/hdf5, and my tar-files is stored in /flash/, users can change your path by yourself. You'd better split the two path in case of you need to reinstall some part due to some error.
 
 ## Install Open MPI
 
-Suggest to use mpi have been installed with system, load module is a good choise.
+- **Recommand strongly** to use mpi which have been installed with system, load existed module is a good choise.
 
-Check the path of system mpi and remember this path.
+If users want to install another version of mpi, firstly check the path of system mpi and remember this path.
 ```
 which mpiicc
 ```
@@ -25,11 +25,11 @@ Maybe it will show like below (up to your server name)
 /abcde/usrname/flash/software/hypre
 ```
 
-If you want to install another one, you can install openmpi or mpich, or both
+If users want to install another one, users can install openmpi or mpich, or both
 
-You can download mpich at ：www.mpich.org/downloads/
+Users can download mpich at ：www.mpich.org/downloads/
 
-You can download openmpi at : https://www.open-mpi.org/software/ompi/v4.0/
+Users can download openmpi at : https://www.open-mpi.org/software/ompi/v4.0/
 ```
 tar -zxvf filename.tar.gz
 ```
@@ -46,7 +46,7 @@ make install
 ```
 #### Add environment variable
 
-Most of time, you don't have to add any environment variables.
+Most of time, users don't have to add any environment variables.
 ```
 cd ~
 vi .bashrc
@@ -60,12 +60,12 @@ make the variable effect
 ```
 source .bashrc
 ```
-or restart the connection.
+or restart the terminal.
 
 
 ## Install Hypre
 
-You can download hypre at : https://computation.llnl.gov/casc/hypre/software.html 
+Users can download hypre at : https://computation.llnl.gov/casc/hypre/software.html 
 ```
 tar -zxvf filename.tar.gz
 cd hypre-x-y-z/src
@@ -86,7 +86,7 @@ make install
 
 ## Install HDF5 and links
 
-You can download hypre at : www.hdfgroup.org/downloads/hdf5/ , hdf5-1.8.x is prefered.
+Users can download hypre at : www.hdfgroup.org/downloads/hdf5/ , hdf5-1.8.x is prefered.
 ```
 tar -zxvf filename.tar.gz
 cd hdf5-x-y-z
@@ -169,7 +169,7 @@ Modify the path of above parts in ```/Object/Makefile.h/Makefile.h```
 cd object
 vi Makefile.h
 ```
-You have to reset MPI, HDF5, HYPRE path, and delete other path in Makefile.h
+Users have to modify MPI, HDF5, HYPRE path, and delete other path in Makefile.h
 ```
 MPI_PATH=
 HDF5_PATH=/abcde/usrname/flash/software/hdf5
@@ -184,3 +184,5 @@ mpirun -np 4 ./flash4
 Output normally until reached max SimTime means FLASH4.6 is installed successfully.
 Now you can setup your own simulation. (Better to make a new directory to store your simulation by add ```-objdir=New_directory``` when ```setup```)
 And don't modify the examples in ```/FLASH4.6/source/Simulation/SimulationMain/```, you can make a new directory and copy the example to it.
+
+There are some 2D and 3D examples in https://github.com/astro-wjz/FLASH-EXAMPLES .
