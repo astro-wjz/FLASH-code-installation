@@ -1,6 +1,6 @@
 # FLASH-code-installation
 
-- 1. Install MPI (not nessesary)
+- 1. Install MPI (not nessesary on server)
 - 2. Install HYPRE
 - 3. Install HDF5
 - 4. Install FLASH
