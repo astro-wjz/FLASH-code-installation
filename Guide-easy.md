@@ -7,9 +7,9 @@ This installation guide is espescially for GCC version > 4.4.7 Red Hat server, o
 
 My PATH-TO-INSTALL is /flash/software/hypre and /flash/software/hdf5, and my tar-files is stored in /flash/, users can change your path by yourself. You'd better split the two path in case of you need to reinstall some part due to some error.
 
-## Install Open MPI
+- ## Install Open MPI
 
-- **Recommand strongly** to use mpi which have been installed with system, load existed module is a good choise.
+**Recommand strongly** to use mpi which have been installed with system, load existed module is a good choise.
 
 If users want to install another version of mpi, firstly check the path of system mpi and remember this path.
 ```
@@ -63,7 +63,7 @@ source .bashrc
 or restart the terminal.
 
 
-## Install Hypre
+- ## Install Hypre
 
 Users can download hypre at : https://computation.llnl.gov/casc/hypre/software.html 
 ```
@@ -84,7 +84,7 @@ make install
 ```
 
 
-## Install HDF5 and links
+- ## Install HDF5 and links
 
 Users can download hypre at : www.hdfgroup.org/downloads/hdf5/ , hdf5-1.8.x is prefered.
 ```
@@ -154,7 +154,7 @@ Clear file buffers before write: yes
 that means the installation succeed.
 
 
-## Install and Test FLASH4.6
+- ## Install and Test FLASH4.6
 
 ```
 tar -zxvf filename.tar.gz
