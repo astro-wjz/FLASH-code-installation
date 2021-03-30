@@ -1,4 +1,7 @@
 # FLASH-code-installation
+
+[toc]
+
 Installation guide of FLASH code for MHD simulation
 
 All of the softwares are open source except FLASH4.X, users should go to http://flash.uchicago.edu/site/flashcode/ to request an account.
