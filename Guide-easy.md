@@ -1,6 +1,6 @@
 # FLASH-code-installation
 
-[toc]
+@[toc](Contens)
 
 Installation guide of FLASH code for MHD simulation
 
