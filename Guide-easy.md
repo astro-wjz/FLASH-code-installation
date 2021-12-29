@@ -19,7 +19,7 @@ My PATH-TO-INSTALL is /flash/software/hypre and /flash/software/hdf5, and my tar
 
 If users want to install another version of mpi, firstly check the path of system mpi and remember this path.
 ```
-which mpiicc
+which mpiicc or which mpicc
 ```
 And remember your install-path and skip to install Hypre.
 ```
