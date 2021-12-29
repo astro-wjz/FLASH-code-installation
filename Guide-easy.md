@@ -76,6 +76,7 @@ Users can download hypre at : https://computation.llnl.gov/casc/hypre/software.h
 tar -zxvf filename.tar.gz
 cd hypre-x-y-z/src
 ```
+For intel compiler, you can use `CC=mpiicc` and `FC=mpiifort`, for other compiler, you have to use `CC=mpicc` and `FC=mpif90`.
 ```
 ./configure --prefix=/abcde/usrname/flash/software/hypre CC=mpiicc FC=mpiifort CXX=mpiicpc
 ```
