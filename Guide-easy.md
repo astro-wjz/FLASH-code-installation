@@ -13,7 +13,7 @@ This installation guide is espescially for GCC version > 4.4.7 Red Hat server, o
 
 My PATH-TO-INSTALL is /flash/software/hypre and /flash/software/hdf5, and my tar-files is stored in /flash/, users can change your path by yourself. You'd better split the two path in case of you need to reinstall some part due to some error.
 
-- ## Install Open MPI
+- ## Install Open MPI ( For server with mpi, skip to STEP II )
 
 **Recommand strongly** to use mpi which have been installed with system, load existed module is a good choise.
 
@@ -71,7 +71,7 @@ or restart the terminal.
 
 - ## Install Hypre
 
-Users can download hypre at : https://computation.llnl.gov/casc/hypre/software.html 
+Users can download hypre at : https://computation.llnl.gov/casc/hypre/software.html , hypre-2.11.2 is prefered.
 ```
 tar -zxvf filename.tar.gz
 cd hypre-x-y-z/src
@@ -93,7 +93,7 @@ make install
 
 - ## Install HDF5 and links
 
-Users can download hypre at : www.hdfgroup.org/downloads/hdf5/ , hdf5-1.8.x is prefered.
+Users can download hdf5 at : www.hdfgroup.org/downloads/hdf5/ , hdf5-1.10.2 is prefered.
 ```
 tar -zxvf filename.tar.gz
 cd hdf5-x-y-z
@@ -101,16 +101,7 @@ cd hdf5-x-y-z
 ```
 CC=mpiicc FC=mpiifort CXX=mpiicpc ./configure --enable-parallel --enable-fortran --prefix=/abcde/usrname/flash/software/hdf5
 ```
-if no error, then
-```
-make
-make install
-```
-Check h5pcc to make sure the installation succeed.
-```
-h5pcc -showconfig
-```
-If the returned information contained:
+if no error, then check the returned information:
 ```
                       AM_CFLAGS:
                        CPPFLAGS:
@@ -131,7 +122,7 @@ If the returned information contained:
 Languages:
 ----------
                         Fortran: yes
-               Fortran Compiler: /opt/intel_2019/compilers_and_libraries_2019.4.243/linux/mpi/intel64/bin/mpif90 ( built with gcc version 4.8.5 20150623 (Red Hat 4.8.5-16) (GCC))
+               Fortran Compiler: 
           Fortran 2003 Compiler:
                   Fortran Flags:
                H5 Fortran Flags:
@@ -158,8 +149,12 @@ Clear file buffers before write: yes
       Strict File Format Checks: no
    Optimization Instrumentation: no
 ```
-that means the installation succeed.
-
+Then
+```
+make
+make install
+```
+Delete all links in installed folder ```hdf5/lib/```, such as delete all files contains .so
 
 - ## Install and Test FLASH4.6
 
@@ -183,6 +178,7 @@ HDF5_PATH=/abcde/usrname/flash/software/hdf5
 HYPRE_PATH=/abcde/usrname/flash/software/hypre
 ZLIB_PATH=
 ```
+An example ```Makefile.h``` for intel compiler is listed.
 Then you can run 'Sedov' example
 ```
 make
