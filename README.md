@@ -1,6 +1,6 @@
 # FLASH-code-installation
 
-- This is an old version guide, which is a little complicated, please see the simple version: `Guide-easy.md`
+- This is an installation guide of old version, which is a little complicated, please see the simple installation guide: `Guide-easy.md`
 
 Installation procedure of FLASH code for MHD simulation
 
