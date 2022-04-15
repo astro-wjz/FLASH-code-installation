@@ -154,7 +154,7 @@ Then
 make
 make install
 ```
-Delete all links in installed folder ```hdf5/lib/```, such as delete all files contains .so
+Delete all links in installed folder ```hdf5/lib/```, such as delete all files contains ```.so```
 
 - ## Install and Test FLASH4.6
 
@@ -166,7 +166,7 @@ setup the example 'Sedov'
 ```
 ./setup Sedov -auto
 ```
-Modify the path of above parts in ```/Object/Makefile.h/Makefile.h```
+Modify the path of above parts in ```/Object/Makefile.h```
 ```
 cd object
 vi Makefile.h
